@@ -102,8 +102,6 @@ const countShoes = async({ search, price, sizes }) => {
 exports.getShoesByName = async({ page = 1, per_page = 8, search, price, sizes }) => {
 
     const offset = (page - 1) * per_page;
-    // console.log("price:", price);
-    // console.log("sizes:", sizes);
 
     const { rows } = await db.query(`
     SELECT * FROM SHOES 
@@ -111,12 +109,6 @@ exports.getShoesByName = async({ page = 1, per_page = 8, search, price, sizes })
     AND "shoes_name" like '%${search}%'
     ${price} ${sizes}
     ORDER BY "price" DESC`);
-    // LIMIT $1 OFFSET $2`, [per_page, offset]);
-
-    // const totalShoes = await countShoes({ search, price, sizes }); total_page: totalPage,
-
-    // const totalPage = totalShoes % per_page === 0 ? totalShoes / per_page : Math.floor(totalShoes / per_page) + 1;
-    // console.log("total: ", rows);
 
     const totalPage = 1;
     return { items: rows };

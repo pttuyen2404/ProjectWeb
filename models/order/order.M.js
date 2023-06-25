@@ -11,16 +11,20 @@ exports.addRow = async(ID, total, phone, address, status) => {
     return rows;
 }
 
+//Xem toàn bộ order của User
 exports.getAllUserOrder = async(u_id) => {
     let ods = await db.query(`select * from orders where user_id = ${u_id} 
     order by order_time DESC;`);
     return ods.rows;
 }
 
+//Xem 1 order của 1 user
 exports.getOneUserOrder = async(o_id) => {
     let odrer = await db.query(`select * from orders where order_id = ${o_id}`);
     return odrer.rows[0];
 };
+
+//Xem nội dung order
 exports.getUserOrderContent = async(o_id) => {
     let o_content = await db.query(`
     SELECT * FROM order_content O JOIN SHOES S

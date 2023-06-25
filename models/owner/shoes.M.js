@@ -1,7 +1,7 @@
 const db = require('../db');
 
 
-
+//Thêm giày
 exports.addOneShoe = async(name, img, idbranch, size, price, stock) => {
     const pds = await db.query(`
     INSERT INTO public.shoes

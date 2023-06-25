@@ -13,7 +13,7 @@ const getOne = async function(fieldName, value) {
 }
 
 const addOne = async function(username, fullName, phoneNumber, password) {
-    // Sửa số 0 thành số 1 để ra owner
+    //Sửa 0 thành 1 để ra owner
     const user = await pool.query(
         `INSERT INTO ${tableName}
      ("username", "fullname", "phone", "pwd", "role_id")

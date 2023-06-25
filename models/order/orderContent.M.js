@@ -13,6 +13,7 @@ exports.addRowOrContent = async(strQuery) => {
 
 const year = new Date().getFullYear();
 
+//Đếm số lượng giày theo tháng và nhãn hiệu
 exports.countShoeSoldByMonthAndBrand = async(month, brand) => {
 
     const { rows } = await db.query(`
@@ -26,6 +27,8 @@ exports.countShoeSoldByMonthAndBrand = async(month, brand) => {
     return rows[0].total;
 
 }
+
+//Đếm số lượng giày theo tháng
 exports.countShoeSoldByMonth = async(month) => {
 
     const { rows } = await db.query(`
@@ -37,6 +40,8 @@ exports.countShoeSoldByMonth = async(month) => {
     return rows[0].total;
 
 }
+
+//Đếm số lượng giày
 exports.countTotalShoes = async(brand) => {
 
     const { rows } = await db.query(`

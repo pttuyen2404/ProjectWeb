@@ -49,11 +49,11 @@ exports.priceForShow = function(price) {
 }
 
 exports.cancelOrder = async(o_id) => {
-    // Cập nhật lại trạng thái hóa đơn
+    // refresh trạng thái hóa đơn
     let cancelRow = (await db.query(`update orders set status = 2 where order_id = ${o_id} returning *;`)).rows[0];
     let o_content = await getOrder(o_id);
 
-    // Thêm lại số lượng sản phẩm trong hóa đơn bị hủy vào kho
+    // thêm lại sản phẩm bị hủy 
     for (let content of o_content) {
         let s_id = content.shoes_id;
         let reStock = content.quantity;

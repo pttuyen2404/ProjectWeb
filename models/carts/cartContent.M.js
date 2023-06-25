@@ -3,7 +3,7 @@ const cartContent = "public.cart_content";
 const shoesTable = "public.shoes";
 
 
-// Thêm sản phẩm vào trong giỏ hàng
+//Thêm sản phẩm vào bên trong giỏ hàng
 exports.ItemAddToCard = async({ card_id, shoe_id, size, quantity }) => {
     // console.log(card_id, shoe_id, size, quantity);
     let isExist = await db.query(`
@@ -32,7 +32,7 @@ exports.ItemAddToCard = async({ card_id, shoe_id, size, quantity }) => {
     return rows;
 }
 
-// Lấy thông tin sản phẩm có trong card.
+// Lấy thông tin sản phẩm đã có trong card.
 
 exports.getCartContent = async(c_id) => {
     const { rows } = await db.query(`
@@ -58,7 +58,7 @@ exports.deleteAllFromCart = async(cart_id) => {
 }
 exports.removeOneFromCart = async(content_id) => {
 
-    // Xóa giày khỏi giỏ
+    // Xóa giày khỏi giỏ hàng
     let deletedRow = await db.query(`delete from cart_content where cart_content_id = ${content_id};`)
 
     return deletedRow;

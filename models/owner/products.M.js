@@ -54,7 +54,7 @@ const totalItems = async(search, brand, price) => {
     return rows[0].count;
 }
 
-
+//Lấy toàn bộ sản phẩm
 exports.getAllProducts = async({ page, per_page = 10, search = "", brand = "", price = "", filter = "" }) => {
 
     const offset = (page - 1) * per_page;

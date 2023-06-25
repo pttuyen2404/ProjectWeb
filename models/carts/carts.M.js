@@ -19,7 +19,7 @@ const getCartId = async(user_id) => {
 
 const getQuantityByUserId = async(user_id) => {
 
-    // console.log("user_id", user_id);
+    
     const { rows } = await db.query(`
     SELECT count(*) FROM ${tableName} C JOIN ${cartContent} CT
     ON C.cart_id = CT.cart_id
