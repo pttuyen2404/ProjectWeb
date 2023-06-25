@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
-
-
-
-
-
+const { getAll, getOne, addOne } = require('../models/auth/auth.M');
+const { getUserById } = require('../models/user/user.M');
+const { getCartContent } = require('../models/carts/cartContent.M');
+const { getQuantityByUserId } = require('../models/carts/carts.M');
 
 const authenTokenResApi = (req, res, next) => {
 
