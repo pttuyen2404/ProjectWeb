@@ -46,7 +46,7 @@ router.get('/', async(req, res) => {
     }
 
     res.render('Owner/Order/orderOwner', {
-        title: "Tất cả hóa đơn | Blue Cloud",
+        title: "Tất cả hóa đơn | Hasagi",
         cssP: () => 'OwnerOrder/cssOrder',
         scriptsP: () => 'OwnerOrder/scriptOrder',
         items,
