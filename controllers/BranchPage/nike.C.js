@@ -68,7 +68,7 @@ router.get("/", async(req, res) => {
     }
 
     res.render('Brandpage/nikePage', {
-        title: 'Giày - Nike | Blue Cloud',
+        title: 'Giày - Nike | Hasagi',
         cssP: () => 'Nike/cssNikePage',
         scriptsP: () => 'Nike/scriptNikePage',
         Packages: items,
