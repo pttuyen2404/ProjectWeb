@@ -70,7 +70,7 @@ router.get("/", async(req, res) => {
     }
 
     res.render('Brandpage/bitisPage', {
-        title: 'Giày - Bitis | Blue Cloud',
+        title: 'Giày - Bitis | Hasagi',
         cssP: () => 'Bitis/cssBitisPage',
         scriptsP: () => 'Bitis/scriptBitisPage',
         Packages: items,

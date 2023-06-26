@@ -70,7 +70,7 @@ router.get("/", async(req, res) => {
         }
 
         res.render('Brandpage/adidasPage', {
-            title: 'Giày - Adidas | Blue Cloud',
+            title: 'Giày - Adidas | Hasagi',
             cssP: () => 'Adidas/cssAdidasPage',
             scriptsP: () => 'Adidas/scriptAdidasPage',
             Packages: items,
