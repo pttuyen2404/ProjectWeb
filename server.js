@@ -56,6 +56,39 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
+// TẤT CẢ CÁC ROUTE
+
+// Route - Trang chủ
+app.use('/', checkCurrentUser, require("./controllers/Site/home.C"));
+// Route - Đăng nhập
+app.use('/dangnhap', checkUserIsLogin, require("./controllers/Auth/logIn.C"));
+// Route - Đăng k
+app.use('/dangki', checkUserIsLogin, require("./controllers/Auth/logUp.C"));
+// app.use('*', authenToken);
+
+// Route - Trang chi tiết giày
+app.use('/shoes', checkCurrentUser, require("./controllers/Detail/shoes.C"));
+
+// Route - Trang addas
+app.use('/adidas', require("./controllers/BrandPage/adidas.C"));
+// Route - Trang Nike
+app.use('/nike', require("./controllers/BrandPage/nike.C"));
+// Route - Trang Bitis
+app.use('/bitis', require("./controllers/BrandPage/bitis.C"));
+// Route - Đăng xuất
+app.use('/dangxuat', require("./controllers/Auth/logOut.C"));
+// Route - Đơn hàng
+app.use('/donhang', authenToken, require("./controllers/Order/order.C"));
+// Route - Trang giỏ hàng
+app.use('/giohang', authenToken, require("./controllers/Cart/cart.C"));
+// Route  - Xử lí thêm vào giỏ hàng
+app.use('/add-item', authenTokenResApi, require("./controllers/Cart/addItem.C"));
+// route - Trang thanh toán
+app.use('/thanhtoan', authenToken, require("./controllers/Payment/payment.C"));
+
+
+//Route - Tất cả các trang còn lại
+app.use('*', require("./controllers/Site/whoop.C"));
 
 app.listen(port, () => {
     console.log(`Listen in port http://localhost:${port}`);
