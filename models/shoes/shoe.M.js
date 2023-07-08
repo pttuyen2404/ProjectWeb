@@ -36,8 +36,7 @@ exports.reduceStockShoe = async(ID) => {
         let index = indexOfSize(rows[0].size, content.orc_size);
 
         let newStock = parseInt(rows[0].stock[index - 1]) - parseInt(reStock);
-        const newRow = await db.query(`update shoes set stock[${index}] = ${newStock} where "shoes_id" = '${s_id}'
-       RETURNING*;`);
+        const newRow = await db.query(`update shoes set stock[${index}] = ${newStock} where "shoes_id" = '${s_id}' RETURNING *`); //RETUNRING;`
     }
 
     return true;

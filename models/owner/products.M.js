@@ -8,7 +8,7 @@ exports.updateOneRow = async({ ID, name, image, brand_id, size, price, stock }) 
     UPDATE ${tableName}
 	SET "shoes_name" ='${name}', "image"='${image}', "brand_id"='${brand_id}', "size"='${size}', "price"='${price}', "stock"='${stock}'
 	WHERE "shoes_id"='${ID}'
-    RETURNING *;`)
+    RETURNING *`)
 
     return rows[0];
 };

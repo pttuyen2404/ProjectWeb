@@ -25,7 +25,7 @@ exports.delOneShoe = async(idShoes) => {
     UPDATE public.shoes
     SET "state"='false'
     WHERE "shoes_id" = '${idShoes}'
-    Returning *;`)
+    Returning *`)
 
     return rows;
 }
@@ -35,6 +35,6 @@ exports.delOneShoeInCart = async(idShoes) => {
     const { rows } = await db.query(`
     DELETE FROM public.cart_content
     WHERE "shoes_id" = '${idShoes}'
-    Returning *;`)
+    Returning *`)
     return rows;
 }

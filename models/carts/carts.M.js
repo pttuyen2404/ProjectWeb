@@ -11,7 +11,8 @@ const addOneCarts = async(idUser) => {
     RETURNING *`);
 
     return data.rows;
-}
+};
+
 const getCartId = async(user_id) => {
     const cart_id = await db.query(`SELECT cart_id FROM ${tableName} WHERE "user_id" = '${user_id}'`);
     return cart_id.rows[0].cart_id;

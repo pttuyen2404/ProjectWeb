@@ -50,7 +50,7 @@ exports.priceForShow = function(price) {
 
 exports.cancelOrder = async(o_id) => {
     // refresh trạng thái hóa đơn
-    let cancelRow = (await db.query(`update orders set status = 2 where order_id = ${o_id} returning *;`)).rows[0];
+    let cancelRow = (await db.query(`update orders set status = 2 where order_id = ${o_id} returning *`)).rows[0];
     let o_content = await getOrder(o_id);
 
     // thêm lại sản phẩm bị hủy 
@@ -72,6 +72,6 @@ exports.cancelOrder = async(o_id) => {
 
 exports.updateOrder = async(o_id, o_phone, o_address, o_status) => {
     let updateRow = (await db.query(`update orders set order_phone = '${o_phone}', address = '${o_address}', status = ${o_status}
-    where order_id = ${o_id} returning *;`)).rows[0];
+    where order_id = ${o_id} returning *`)).rows[0];
     return updateRow;
 }

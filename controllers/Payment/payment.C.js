@@ -103,13 +103,12 @@ router.post("/thongtin", async(req, res) => {
     strQuery = strQuery.slice(0, strQuery.length - 1);
 
     const newRowcontent = await addRowOrContent(strQuery);
-
+    
     const delRow = await deleteAllFromCart(cart_id);
 
     const newRowinShoe = await reduceStockShoe(newRow[0].order_id);
 
-
-    if (newRowcontent.length > 0 && delRow.length > 0 && newRow.length > 0) {
+    if (newRowcontent.length > 0  && delRow.length > 0 && newRow.length > 0) {
         res.redirect('/');
     } else {
         res.redirect('/thanhtoan/thongtin?error=004');
